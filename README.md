@@ -45,5 +45,18 @@ Practice Rest Web Api, Clean Architecture,  CQRS+ MediatR, logger, authenticatio
 | 504   | Gateway Timeout               | The server, acting as a                                                                                                                       |
 
 
+## Clean Architecture 
+
+![alt text](image.png)
+
+    - Benefits : 
+        + Testability   
+        + UI independence
+        + Free to choose / change the database
+        + Flexibility 
+        + Transparency 
+        
+
+
 
 
