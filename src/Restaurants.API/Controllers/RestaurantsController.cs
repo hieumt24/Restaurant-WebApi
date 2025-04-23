@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Restaurants.Application.Dtos;
 using Restaurants.Application.Restaurants;
 
 namespace Restaurants.API.Controllers;
@@ -20,5 +21,12 @@ public class RestaurantsController(IRestaurantsService restaurantsService) : Con
         if (restaurant is null)
             return NotFound();
         return Ok(restaurant);
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> CreateRestaurant([FromBody] CreateRestaurantDto createRestaurantDto)
+    {
+        var id = await restaurantsService.Create(createRestaurantDto);
+        return CreatedAtAction(nameof(GetById), new { id }, null);
     }
 }
