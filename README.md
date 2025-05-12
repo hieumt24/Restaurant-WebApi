@@ -55,6 +55,24 @@ Practice Rest Web Api, Clean Architecture,  CQRS+ MediatR, logger, authenticatio
         + Free to choose / change the database
         + Flexibility 
         + Transparency 
+
+## CQRS 
+    - Command/Query Responsibility Segregation -a design pattern that segregates responsibilities depending on whether a given operation writes or retrieves data.
+    - By specific division of responsibilities, we will obtain simple class implementations with a minimum number of dependencies.
+
+
+|                Command                        |               Query                       | 
+|-----------------------------------------------|-------------------------------------------|
+|- Responsible only for writing/saving the data |- Responsible only for retrieving the data |
+|- Validates the model                          |- Checks the request context               |
+|- Processes application logic                  |- It is idempotent                         |
+
+    => Implementation of CQRS : 
+        1. Installing MediatR package : MediatR, based on the mediator's pattern, will easily enable us to implement CQRS, using classes representing commands and query
+        2. Creating concrete classes : We will add classes to our walkthrough representing commands and queries and their handlers, using special interfaces and base classes made available from Mediata package
+        3. Registration and use of the MediatR : We'll register created classes and the mediator itself, then using the IMediator interface we will be able to send these commands/queries.
+
+
         
 
 
