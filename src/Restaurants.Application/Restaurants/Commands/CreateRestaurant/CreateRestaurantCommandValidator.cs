@@ -1,5 +1,4 @@
 ﻿using FluentValidation;
-using Restaurants.Application.Dtos;
 using Restaurants.Application.Restaurants.Commands.CreateRestaurant;
 
 namespace Restaurants.Application.Validators;
@@ -13,7 +12,7 @@ public class CreateRestaurantCommandValidator : AbstractValidator<CreateRestaura
 
         RuleFor(dto => dto.Description)
             .NotEmpty().WithMessage("Description is required.");
-        
+
         RuleFor(dto => dto.Category)
             .NotEmpty().WithMessage("Insert a valid category.");
 

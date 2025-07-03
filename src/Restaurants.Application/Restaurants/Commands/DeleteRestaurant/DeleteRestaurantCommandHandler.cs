@@ -4,7 +4,8 @@ using Restaurants.Domain.Repositories;
 
 namespace Restaurants.Application.Restaurants.Commands.DeleteRestaurant;
 
-public class DeleteRestaurantCommandHandler(ILogger<DeleteRestaurantCommandHandler> logger,
+public class DeleteRestaurantCommandHandler(
+    ILogger<DeleteRestaurantCommandHandler> logger,
     IRestaurantsRepository restaurantsRepository) : IRequestHandler<DeleteRestaurantCommand, bool>
 {
     public async Task<bool> Handle(DeleteRestaurantCommand request, CancellationToken cancellationToken)
@@ -14,7 +15,7 @@ public class DeleteRestaurantCommandHandler(ILogger<DeleteRestaurantCommandHandl
 
         if (restaurant is null)
             return false;
-        
+
         await restaurantsRepository.Delete(restaurant);
         return true;
     }

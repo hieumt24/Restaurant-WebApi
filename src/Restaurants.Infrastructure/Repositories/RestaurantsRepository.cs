@@ -7,7 +7,6 @@ namespace Restaurants.Infrastructure.Repositories;
 
 internal class RestaurantsRepository(RestaurantsDbContext dbContext) : IRestaurantsRepository
 {
-    
     public async Task<IEnumerable<Restaurant>> GetAllAsync()
     {
         return await dbContext.Restaurants
@@ -37,7 +36,7 @@ internal class RestaurantsRepository(RestaurantsDbContext dbContext) : IRestaura
     }
 
     public async Task SaveChanges()
-    => await dbContext.SaveChangesAsync();
-
-  
+    {
+        await dbContext.SaveChangesAsync();
+    }
 }
