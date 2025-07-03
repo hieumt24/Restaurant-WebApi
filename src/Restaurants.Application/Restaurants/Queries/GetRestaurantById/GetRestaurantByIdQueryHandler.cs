@@ -2,6 +2,8 @@
 using MediatR;
 using Microsoft.Extensions.Logging;
 using Restaurants.Application.Dtos;
+using Restaurants.Domain.Entities;
+using Restaurants.Domain.Exceptions;
 using Restaurants.Domain.Repositories;
 
 namespace Restaurants.Application.Restaurants.Queries.GetRestaurantById;
@@ -15,6 +17,7 @@ public class GetRestaurantByIdQueryHandler(
     {
         logger.LogInformation("Get Restaurant {restaurantId}", request.Id);
         var restaurant = await restaurantsRepository.GetByIdAsync(request.Id);
+        if (restaurant is null) throw new NotFoundException(nameof(Restaurant), request.Id.ToString());
         // var restaurantDto = RestaurantDto.FromEntity(restaurant);
         var restaurantDto = mapper.Map<RestaurantDto?>(restaurant);
         return restaurantDto;

@@ -10,7 +10,7 @@ namespace Restaurants.API.Controllers;
 
 [Route("/api/restaurants/{restaurantId}/dishes")]
 [ApiController]
-public class DishesController(IMediator mediator) : Controller
+public class DishesController(IMediator mediator) : ControllerBase
 {
     [HttpPost]
     public async Task<IActionResult> CreateDish([FromRoute] int restaurantId, CreateDishCommand command)
