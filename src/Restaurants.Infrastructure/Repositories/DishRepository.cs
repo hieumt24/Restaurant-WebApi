@@ -1,4 +1,5 @@
-﻿using Restaurants.Domain.Entities;
+﻿using Microsoft.EntityFrameworkCore;
+using Restaurants.Domain.Entities;
 using Restaurants.Domain.Repositories;
 using Restaurants.Infrastructure.Persistence;
 
@@ -17,5 +18,12 @@ internal class DishRepository(RestaurantsDbContext dbContext) : IDishesRepositor
     {
         dbContext.Dishes.RemoveRange(entities);
         await dbContext.SaveChangesAsync();
+    }
+
+    public Task<int> DeleteForRestaurantAsync(int restaurantId)
+    {
+        return dbContext.Dishes
+            .Where(x => x.RestaurantId == restaurantId)
+            .ExecuteDeleteAsync();
     }
 }

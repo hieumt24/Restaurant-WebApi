@@ -71,7 +71,8 @@ Practice Rest Web Api, Clean Architecture,  CQRS+ MediatR, logger, authenticatio
         1. Installing MediatR package : MediatR, based on the mediator's pattern, will easily enable us to implement CQRS, using classes representing commands and query
         2. Creating concrete classes : We will add classes to our walkthrough representing commands and queries and their handlers, using special interfaces and base classes made available from Mediata package
         3. Registration and use of the MediatR : We'll register created classes and the mediator itself, then using the IMediator interface we will be able to send these commands/queries.
-
+## Authorization 
+    - Authorization is the process of granting or denying access to resources and functionalities within a web application based on the user's identity, role, or permissions.
 
         
 
